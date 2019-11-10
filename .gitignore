@@ -14,3 +14,6 @@ backup/
 /cms/cached/*
 /config.php
 .uploadrc
+.env
+vendor
+cms/modules_installed

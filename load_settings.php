@@ -1,4 +1,5 @@
 <?php
+require_once './dotenv.php';
 
 error_reporting(E_ALL & ~(E_STRICT | E_NOTICE | E_DEPRECATED));
 mb_internal_encoding("UTF-8");
@@ -110,9 +111,8 @@ if (IsSet($_SERVER['SERVER_ADDR']) && IsSet($_SERVER['SERVER_PORT'])) {
     Define('SERVER_URL', 'http://' . $_SERVER['HTTP_HOST'] . ':' . $_SERVER['SERVER_PORT']);
     Define('SERVER_ADDR', $_SERVER['SERVER_ADDR']);
 } else {
-    Define('SERVER_URL', 'http://localhost:80');
+    Define('SERVER_URL', getenv('BASE_URL'));
 }
 
 if (!defined('WEBSOCKETS_PORT'))
-    Define('WEBSOCKETS_PORT', 8001);
-
+    Define('WEBSOCKETS_PORT', getenv('SERVER_PORT'));
