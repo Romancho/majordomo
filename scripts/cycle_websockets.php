@@ -35,7 +35,7 @@ include_once(DIR_MODULES . 'objects/objects.class.php');
 $objects_module = new objects();
 
 
-//Define('DEBUG_WEBSOCKETS', 1);
+Define('DEBUG_WEBSOCKETS', getenv('DEBUG_WEBSOCKETS'));
 
 $websockets_script_started=time();
 

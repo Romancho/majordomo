@@ -8,8 +8,7 @@
  * @author Serge Dzheigalo <jey@tut.by> http://smartliving.ru/
  * @version 0.4 (wizard, 12:05:51 [May 22, 2009])
  */
-//
-//
+
 class objects extends module
 {
 
@@ -597,7 +596,7 @@ class objects extends module
                 try {
                     $success = eval($code);
                     if ($success === false) {
-                        //getLogger($this)->error(sprintf('Error in "%s.%s" method.', $this->object_title, $name));
+                        getLogger($this)->error(sprintf('Error in "%s.%s" method.', $this->object_title, $name));
                         registerError('method', sprintf('Exception in "%s.%s" method.', $this->object_title, $name));
                     }
                 } catch (Exception $e) {

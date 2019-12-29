@@ -55,6 +55,7 @@ class Threads
     */
    public function newThread($filename, $params = array())
    {
+       print_r($params);
       if (!file_exists($filename))
       {
          DebMes("Cannot start thread '$filename' -- FILE NOT FOUND");
@@ -204,15 +205,15 @@ class Threads
             //print_r($proc_status);
             //echo "\n";
          }
-
+         print_r ($proc_status);
          if (!$proc_status['running'])
          {
             //feof($stream)
             echo date('H:i:s') . " Closing thread: " . $this->commandLines[$id] . "\n";
             DebMes("Closing thread: " . $this->commandLines[$id]);
-            
+
             $result .= "THREAD CLOSED: [" . $this->commandLines[$id] . "]\n";
-            
+
             fclose($this->pipes[$id][0]);
             fclose($this->pipes[$id][1]);
 

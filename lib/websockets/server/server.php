@@ -4,7 +4,7 @@
  * and/or modify it under the terms of the Do What The Fuck You Want
  * To Public License, Version 2, as published by Sam Hocevar. See
  * http://sam.zoy.org/wtfpl/COPYING for more details. */
-
+require './dotenv.php';
 //ini_set('display_errors', 1);
 //error_reporting(E_ALL);
 
@@ -13,7 +13,7 @@ require(__DIR__ . '/lib/SplClassLoader.php');
 $classLoader = new SplClassLoader('WebSocket', __DIR__ . '/lib');
 $classLoader->register();
 
-if (!defined('WEBSOCKETS_PORT')) define('WEBSOCKETS_PORT',8002);
+if (!defined('WEBSOCKETS_PORT')) define('WEBSOCKETS_PORT', getenv('WEBSOCKET_PORT'));
 
 $server = new \WebSocket\Server('0.0.0.0', WEBSOCKETS_PORT, false);
 

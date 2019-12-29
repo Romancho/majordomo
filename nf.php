@@ -77,7 +77,7 @@ $requests = array(
    "/^\/docs\/(\d+)\.html/is"           => '?(application:{action=docs, doc_id=\1})',
    "/^\/([\w-]+)\.html/is"              => '?(application:{action=docs, doc_name=\1})'
 );
-
+//$link = null;
 $found=0;
 foreach($requests as $key => $value)
 {
@@ -111,6 +111,7 @@ include_once("./config.php");
 startMeasure('loader');
 include_once("./lib/loader.php");
 endMeasure('loader');
+
 
 if ($link != '')
 {

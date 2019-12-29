@@ -50,7 +50,6 @@ if ($lib_dir = @opendir("./lib")) {
     SaveFile('./lib/merged/libraries.php', $data);
     */
 }
-
 if (defined('DB_HOST') && DB_HOST) {
     startMeasure('db_connection');
     global $db;

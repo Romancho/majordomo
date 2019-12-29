@@ -150,7 +150,6 @@ $sqlQuery = "SELECT pvalues.*, objects.TITLE AS OBJECT_TITLE, properties.TITLE A
 
 $data = SQLSelect($sqlQuery);
 $total = count($data);
-
 for ($i = 0; $i < $total; $i++) {
     $objectProperty = $data[$i]['OBJECT_TITLE'] . "." . $data[$i]['PROPERTY_TITLE'];
 
@@ -173,6 +172,7 @@ for ($i = 0; $i < $total; $i++) {
 // SET SERIAL
 $serial_data='';
 $current_serial=gg('ThisComputer.Serial');
+
 if (IsWindowsOS()) {
     
 } else {

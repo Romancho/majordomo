@@ -112,7 +112,7 @@ function postToWebSocket($property, $value, $post_action = 'PostProperty')
 
     if (!Is_Object($wsClient)) {
         $wsClient = new WebsocketClient;
-        if (!(@$wsClient->connect('127.0.0.1', WEBSOCKETS_PORT, '/majordomo'))) {
+        if (!(@$wsClient->connect('0.0.0.0', WEBSOCKETS_PORT, '/majordomo'))) {
             $wsClient = false;
             if (defined('DEBUG_WEBSOCKETS') && DEBUG_WEBSOCKETS == 1) {
                 DebMes("Failed to connect to websocket");
@@ -155,7 +155,7 @@ function postToWebSocket($property, $value, $post_action = 'PostProperty')
     if (!$data_sent && !IsSet($_SERVER['REQUEST_METHOD'])) {
         //reconnect
         $wsClient = new WebsocketClient;
-        if ((@$wsClient->connect('127.0.0.1', WEBSOCKETS_PORT, '/majordomo'))) {
+        if ((@$wsClient->connect('0.0.0.0', WEBSOCKETS_PORT, '/majordomo'))) {
             $data_sent = @$wsClient->sendData($payload);
         } else {
             if (defined('DEBUG_WEBSOCKETS') && DEBUG_WEBSOCKETS == 1) {
